@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Trips - AI Travel Planner</title>
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/profile.css">
+    <link rel="stylesheet" href="css/suggestions.css"> <!-- Reuse Timeline styles -->
+</head>
+<body>
+
+    <!-- Header Navbar -->
+    <header class="navbar">
+        <a href="dashboard.html" class="logo">
+            <span class="logo-icon">✈️</span> Roam<span>AI</span>
+        </a>
+        
+        <button class="menu-toggle" id="menuToggle" onclick="document.querySelector('.nav-links').classList.toggle('show')">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <nav class="nav-links">
+            <a href="dashboard.html" class="nav-link">Dashboard</a>
+            <a href="suggestions.html" class="nav-link">AI Planner</a>
+            <a href="profile.html" class="nav-link active">My Trips</a>
+            <div id="authNav" class="nav-auth">
+                <!-- Injected dynamically via auth.js -->
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Container -->
+    <main class="profile-container">
+        
+        <div class="profile-grid" id="profileGrid">
+            
+            <!-- Sidebar containing User Info -->
+            <aside class="profile-sidebar">
+                <div class="profile-avatar" id="profileAvatar">U</div>
+                <div class="profile-info">
+                    <h2 class="profile-name" id="profileName">Loading User...</h2>
+                    <p class="profile-email" id="profileEmail">Loading Email...</p>
+                </div>
+                <div class="profile-details-list">
+                    <div class="profile-details-item">
+                        <span class="profile-details-label">Joined On</span>
+                        <span class="profile-details-val" id="profileJoinDate">Loading...</span>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- Main checklist list -->
+            <section class="profile-main">
+                <div class="section-header">
+                    <h2 class="section-title">My Saved Destinations</h2>
+                </div>
+                
+                <div id="savedPlacesContainer" style="margin-top: 25px; display: flex; flex-direction: column; gap: 20px;">
+                    <!-- Accordion blocks injected dynamically via profile.js -->
+                </div>
+            </section>
+
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">Roam<span>AI</span></div>
+            <ul class="footer-links">
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="suggestions.html">AI Planner</a></li>
+                <li><a href="profile.html">My Trips</a></li>
+            </ul>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2026 RoamAI Travel Planner. All rights reserved. Built with Groq & Firebase.
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/firebase-config.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/profile.js"></script>
+</body>
+</html>

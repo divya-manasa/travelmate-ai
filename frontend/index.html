@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Travel Planner - Redirecting...</title>
+    <script>
+        // Clean session route redirecting immediately before page paint
+        const token = localStorage.getItem('token');
+        if (token) {
+            window.location.href = 'dashboard.html';
+        } else {
+            window.location.href = 'login.html';
+        }
+    </script>
+</head>
+<body style="margin: 0; padding: 0; background-color: #f1f5f9; display: flex; align-items: center; justify-content: center; height: 100vh; font-family: sans-serif; color: #475569;">
+    <div style="text-align: center;">
+        <div style="border: 3px solid #e2e8f0; border-top: 3px solid #0288d1; border-radius: 50%; width: 30px; height: 30px; animation: spin 1s linear infinite; margin: 0 auto 12px;"></div>
+        <p>Routing to your travel experience...</p>
+    </div>
+    <style>
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+    </style>
+</body>
+</html>

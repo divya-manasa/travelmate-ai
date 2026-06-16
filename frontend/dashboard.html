@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - AI Travel Planner</title>
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body>
+
+    <!-- Header Navbar -->
+    <header class="navbar">
+        <a href="dashboard.html" class="logo">
+            <span class="logo-icon">✈️</span> Roam<span>AI</span>
+        </a>
+        
+        <button class="menu-toggle" id="menuToggle" onclick="document.querySelector('.nav-links').classList.toggle('show')">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <nav class="nav-links">
+            <a href="dashboard.html" class="nav-link active">Dashboard</a>
+            <a href="suggestions.html" class="nav-link">AI Planner</a>
+            <a href="profile.html" class="nav-link">My Trips</a>
+            <div id="authNav" class="nav-auth">
+                <!-- Injected dynamically via auth.js -->
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main id="dashboardContainer" class="dashboard-container">
+        
+        <!-- User summary card -->
+        <section class="user-summary-card" id="userSummaryCard">
+            <div style="width: 100%; text-align: center; padding: 20px;">
+                <span class="loader" style="border-top-color: var(--primary); width: 25px; height: 25px;"></span>
+                <p style="margin-top: 10px; color: var(--text-secondary);">Loading your stats...</p>
+            </div>
+        </section>
+
+        <!-- Trending Destinations Section -->
+        <section class="trending-destinations-section">
+            <div class="section-header">
+                <h2 class="section-title">Trending Destinations</h2>
+            </div>
+            
+            <div class="destinations-grid" id="trendingGrid" style="margin-top: 30px;">
+                <!-- Trending cards will be injected dynamically via dashboard.js -->
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">Roam<span>AI</span></div>
+            <ul class="footer-links">
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="suggestions.html">AI Planner</a></li>
+                <li><a href="profile.html">My Trips</a></li>
+            </ul>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2026 RoamAI Travel Planner. All rights reserved. Built with Groq & Firebase.
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/firebase-config.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/dashboard.js"></script>
+</body>
+</html>

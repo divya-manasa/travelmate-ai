@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Planner - AI Travel Planner</title>
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/suggestions.css">
+</head>
+<body>
+
+    <!-- Header Navbar -->
+    <header class="navbar">
+        <a href="dashboard.html" class="logo">
+            <span class="logo-icon">✈️</span> Roam<span>AI</span>
+        </a>
+        
+        <button class="menu-toggle" id="menuToggle" onclick="document.querySelector('.nav-links').classList.toggle('show')">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <nav class="nav-links">
+            <a href="dashboard.html" class="nav-link">Dashboard</a>
+            <a href="suggestions.html" class="nav-link active">AI Planner</a>
+            <a href="profile.html" class="nav-link">My Trips</a>
+            <div id="authNav" class="nav-auth">
+                <!-- Injected dynamically via auth.js -->
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content Container -->
+    <main class="suggestions-container">
+
+        <!-- Form section -->
+        <section class="preference-card" id="preferenceFormCard">
+            <h2 style="font-size: 1.5rem; margin-bottom: 8px;">Let's Plan Your Next Trip</h2>
+            <p style="color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 25px;">Enter your preferences, and our AI will draft 3 customized destinations, itineraries, and checklists.</p>
+            
+            <form id="preferencesForm">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="preferredCountry" class="form-label">Preferred Country / Region</label>
+                        <input type="text" id="preferredCountry" class="form-control" placeholder="e.g. India, Europe, Japan" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="budget" class="form-label">Approximate Budget ($ or Local Currency)</label>
+                        <input type="text" id="budget" class="form-control" placeholder="e.g. 1500, 50000" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="climatePreference" class="form-label">Climate Preference</label>
+                        <select id="climatePreference" class="form-control">
+                            <option value="Tropical / Warm">Tropical / Warm</option>
+                            <option value="Snowy / Cold">Snowy / Cold</option>
+                            <option value="Temperate / Moderate">Temperate / Moderate</option>
+                            <option value="Mediterranean">Mediterranean</option>
+                            <option value="Arid / Desert">Arid / Desert</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="travelType" class="form-label">Travel Type</label>
+                        <select id="travelType" class="form-control">
+                            <option value="Adventure">Adventure</option>
+                            <option value="Luxury">Luxury</option>
+                            <option value="Family">Family</option>
+                            <option value="Solo">Solo</option>
+                            <option value="Honeymoon">Honeymoon</option>
+                            <option value="Business">Business</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="tripDuration" class="form-label">Trip Duration (Days)</label>
+                        <input type="number" id="tripDuration" class="form-control" min="1" max="30" value="3" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="numberOfTravelers" class="form-label">Number of Travelers</label>
+                        <input type="number" id="numberOfTravelers" class="form-control" min="1" value="1" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="accommodationPreference" class="form-label">Accommodation Style</label>
+                        <select id="accommodationPreference" class="form-control">
+                            <option value="Budget">Budget</option>
+                            <option value="Standard">Standard</option>
+                            <option value="Luxury">Luxury</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Activities checkboxes -->
+                <div class="form-group">
+                    <label class="form-label">Preferred Activities (Select all that apply)</label>
+                    <div class="activities-container">
+                        <div class="activity-pill">
+                            <input type="checkbox" id="act-beaches" name="activities" value="Beaches" checked>
+                            <label for="act-beaches" class="activity-label">Beaches</label>
+                        </div>
+                        <div class="activity-pill">
+                            <input type="checkbox" id="act-mountains" name="activities" value="Mountains">
+                            <label for="act-mountains" class="activity-label">Mountains</label>
+                        </div>
+                        <div class="activity-pill">
+                            <input type="checkbox" id="act-trekking" name="activities" value="Trekking">
+                            <label for="act-trekking" class="activity-label">Trekking</label>
+                        </div>
+                        <div class="activity-pill">
+                            <input type="checkbox" id="act-shopping" name="activities" value="Shopping">
+                            <label for="act-shopping" class="activity-label">Shopping</label>
+                        </div>
+                        <div class="activity-pill">
+                            <input type="checkbox" id="act-food" name="activities" value="Food">
+                            <label for="act-food" class="activity-label">Food & Cuisine</label>
+                        </div>
+                        <div class="activity-pill">
+                            <input type="checkbox" id="act-history" name="activities" value="Historical Places">
+                            <label for="act-history" class="activity-label">Historical Places</label>
+                        </div>
+                        <div class="activity-pill">
+                            <input type="checkbox" id="act-nature" name="activities" value="Nature">
+                            <label for="act-nature" class="activity-label">Nature & Wildlife</label>
+                        </div>
+                        <div class="activity-pill">
+                            <input type="checkbox" id="act-photo" name="activities" value="Photography">
+                            <label for="act-photo" class="activity-label">Photography</label>
+                        </div>
+                        <div class="activity-pill">
+                            <input type="checkbox" id="act-night" name="activities" value="Nightlife">
+                            <label for="act-night" class="activity-label">Nightlife</label>
+                        </div>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-accent" style="margin-top: 15px; padding: 12px 30px; font-size: 1rem;">✈️ Generate AI Suggestions</button>
+            </form>
+        </section>
+
+        <!-- Loading panel -->
+        <section class="loading-panel" id="loadingPanel">
+            <div class="loading-spinner"></div>
+            <div class="loading-text">Designing your custom travel plans...</div>
+            <div class="loading-subtext">Llama 3.3 is analyzing your destinations, budgeting travel routes, and compiling safety tips. This may take a few seconds.</div>
+        </section>
+
+        <!-- Results section -->
+        <section class="results-section" id="resultsSection" style="display: none;">
+            <div class="results-header">
+                <h2 class="section-title">Your AI Travel Recommendations</h2>
+            </div>
+            
+            <div class="suggestions-list" id="suggestionsGrid" style="margin-top: 30px;">
+                <!-- Suggestions injected via suggestions.js -->
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">Roam<span>AI</span></div>
+            <ul class="footer-links">
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="suggestions.html">AI Planner</a></li>
+                <li><a href="profile.html">My Trips</a></li>
+            </ul>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2026 RoamAI Travel Planner. All rights reserved. Built with Groq & Firebase.
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/firebase-config.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/suggestions.js"></script>
+</body>
+</html>

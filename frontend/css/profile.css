@@ -1,0 +1,328 @@
+.profile-container {
+    max-width: 1200px;
+    width: 90%;
+    margin: 40px auto;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.profile-grid {
+    display: grid;
+    grid-template-columns: 320px 1fr;
+    gap: 30px;
+    align-items: start;
+}
+
+/* User Profile Sidebar Card */
+.profile-sidebar {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    padding: 30px;
+    text-align: center;
+    box-shadow: var(--shadow-sm);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.profile-avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--primary), var(--primary-light));
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+    font-weight: 800;
+    font-family: 'Outfit', sans-serif;
+    box-shadow: var(--shadow-md);
+}
+
+.profile-info {
+    width: 100%;
+}
+
+.profile-name {
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-bottom: 4px;
+}
+
+.profile-email {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin-bottom: 20px;
+    word-break: break-all;
+}
+
+.profile-details-list {
+    border-top: 1px solid var(--border-color);
+    padding-top: 20px;
+    width: 100%;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    font-size: 0.85rem;
+}
+
+.profile-details-item {
+    display: flex;
+    justify-content: space-between;
+}
+
+.profile-details-label {
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
+.profile-details-val {
+    font-weight: 600;
+}
+
+/* Saved Places Layout - Accordion or Stacked */
+.profile-main {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.saved-dest-card {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+    overflow: hidden;
+    transition: box-shadow var(--transition-normal);
+}
+
+.saved-dest-card:hover {
+    box-shadow: var(--shadow-md);
+}
+
+.saved-dest-header {
+    padding: 20px 24px;
+    background-color: var(--bg-card);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    user-select: none;
+    border-bottom: 1px solid transparent;
+    transition: background-color var(--transition-fast);
+}
+
+.saved-dest-header:hover {
+    background-color: rgba(0, 0, 0, 0.01);
+}
+
+.saved-dest-header.active {
+    border-bottom-color: var(--border-color);
+    background-color: rgba(2, 136, 209, 0.01);
+}
+
+.saved-dest-title-group {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.saved-dest-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+}
+
+.saved-dest-subtitle {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+}
+
+.saved-dest-meta-group {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+/* Checklist Progress Bar */
+.progress-container {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    width: 140px;
+}
+
+.progress-header {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+.progress-pct {
+    color: var(--primary);
+}
+
+.progress-bar-bg {
+    height: 6px;
+    background-color: var(--border-color);
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.progress-bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--primary), var(--primary-light));
+    width: 0%;
+    transition: width var(--transition-normal);
+}
+
+.toggle-icon {
+    font-size: 1.2rem;
+    color: var(--text-secondary);
+    transition: transform var(--transition-normal);
+}
+
+.saved-dest-header.active .toggle-icon {
+    transform: rotate(180deg);
+}
+
+/* Saved Destination Body Content */
+.saved-dest-body {
+    display: none;
+    padding: 24px;
+    animation: slideDown 0.3s ease-out;
+}
+
+.saved-dest-body.show {
+    display: block;
+}
+
+.saved-dest-sections {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
+
+@media (max-width: 992px) {
+    .saved-dest-sections {
+        grid-template-columns: 1fr;
+    }
+}
+
+.info-section h4, .checklist-section h4 {
+    font-size: 1rem;
+    margin-bottom: 12px;
+    color: var(--primary-dark);
+    border-bottom: 1.5px solid var(--border-color);
+    padding-bottom: 6px;
+}
+
+.dest-desc-text {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+    margin-bottom: 16px;
+}
+
+.dest-bullet-list {
+    list-style: none;
+    font-size: 0.85rem;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 16px;
+}
+
+.dest-bullet-list li {
+    display: flex;
+    gap: 8px;
+}
+
+/* Interactive Checklist Items */
+.interactive-checklist {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.checklist-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 14px;
+    background-color: var(--bg-main);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    transition: background-color var(--transition-fast);
+}
+
+.checklist-row:hover {
+    background-color: hsl(215, 20%, 93%);
+}
+
+.checklist-checkbox {
+    width: 18px;
+    height: 18px;
+    border-radius: 4px;
+    border: 2px solid var(--border-color);
+    cursor: pointer;
+    accent-color: var(--primary);
+}
+
+.checklist-text {
+    font-size: 0.88rem;
+    color: var(--text-primary);
+    transition: color var(--transition-fast), text-decoration var(--transition-fast);
+}
+
+.checklist-row.completed {
+    background-color: var(--accent-light);
+    border-color: hsl(155, 75%, 85%);
+}
+
+.checklist-row.completed .checklist-text {
+    text-decoration: line-through;
+    color: var(--text-muted);
+}
+
+.checklist-row.completed .checklist-checkbox {
+    border-color: var(--accent);
+}
+
+.dest-controls {
+    margin-top: 20px;
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    border-top: 1px solid var(--border-color);
+    padding-top: 15px;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Grid for Profile Layout */
+@media (max-width: 900px) {
+    .profile-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .profile-sidebar {
+        width: 100%;
+    }
+}

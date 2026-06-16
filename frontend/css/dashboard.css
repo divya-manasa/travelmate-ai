@@ -1,0 +1,241 @@
+.dashboard-container {
+    max-width: 1200px;
+    width: 90%;
+    margin: 40px auto;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+/* User Summary Card */
+.user-summary-card {
+    background: linear-gradient(135deg, rgba(2, 136, 209, 0.08) 0%, rgba(2, 136, 209, 0.02) 100%);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    padding: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.user-info h2 {
+    font-size: 1.8rem;
+    margin-bottom: 6px;
+}
+
+.user-info p {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.user-meta-info {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-top: 10px;
+}
+
+.user-stats {
+    display: flex;
+    gap: 24px;
+}
+
+.stat-item {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    padding: 20px 24px;
+    border-radius: var(--radius-sm);
+    text-align: center;
+    min-width: 140px;
+    box-shadow: var(--shadow-sm);
+    transition: transform var(--transition-fast);
+}
+
+.stat-item:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+}
+
+.stat-value {
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--primary);
+    font-family: 'Outfit', sans-serif;
+    line-height: 1.2;
+}
+
+.stat-label {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    font-weight: 500;
+    margin-top: 4px;
+}
+
+/* Section Header */
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: 12px;
+}
+
+.section-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    position: relative;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -14px;
+    left: 0;
+    width: 60px;
+    height: 4px;
+    background-color: var(--primary);
+    border-radius: 2px;
+}
+
+/* Destination Cards Grid */
+.destinations-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.dest-card {
+    background-color: var(--bg-card);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--border-color);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+}
+
+.dest-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-lg);
+}
+
+.dest-img-wrapper {
+    position: relative;
+    height: 200px;
+    overflow: hidden;
+}
+
+.dest-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.dest-card:hover .dest-img {
+    transform: scale(1.1);
+}
+
+.dest-rating {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(4px);
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-weight: 700;
+    font-size: 0.85rem;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    color: var(--text-primary);
+    box-shadow: var(--shadow-sm);
+}
+
+.dest-rating span {
+    color: var(--secondary);
+}
+
+.dest-content {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    gap: 12px;
+}
+
+.dest-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+}
+
+.dest-location {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    margin-top: -8px;
+}
+
+.dest-desc {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+}
+
+.dest-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid var(--border-color);
+    padding-top: 15px;
+    margin-top: auto;
+    font-size: 0.85rem;
+}
+
+.dest-budget {
+    font-weight: 700;
+    color: var(--primary-dark);
+}
+
+.dest-season {
+    color: var(--text-secondary);
+    font-style: italic;
+}
+
+.dest-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.dest-actions .btn {
+    flex: 1;
+    padding: 8px 16px;
+    font-size: 0.85rem;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .user-summary-card {
+        flex-direction: column;
+        align-items: stretch;
+        text-align: center;
+    }
+    
+    .user-info p {
+        justify-content: center;
+    }
+    
+    .user-stats {
+        justify-content: center;
+    }
+}
