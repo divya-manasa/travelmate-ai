@@ -35,7 +35,7 @@ app = FastAPI(
 # Enable CORS (Cross-Origin Resource Sharing)
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # For local development, allow any origin. In production, restrict to your frontend domain.
+    allow_origins=["https://travelmate-ai-omega.vercel.app"],  # For local development, allow any origin. In production, restrict to your frontend domain.
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
