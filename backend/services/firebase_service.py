@@ -125,8 +125,12 @@ class FirebaseService:
                 
             return doc_data
         except Exception as e:
+            print("FIREBASE REGISTER ERROR:", repr(e))
+            import traceback
+            traceback.print_exc()
+            
             raise HTTPException(
-                status_code=status.HTTP_400_BAD_REQUEST,
+                status_code=400,
                 detail=f"Registration failed: {str(e)}"
             )
 
